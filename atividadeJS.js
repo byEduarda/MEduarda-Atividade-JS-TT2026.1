@@ -5,7 +5,17 @@ function processarNotas(notasString){
 }
 
 function calcularMediaNotas(notasString){
+    
+    let notasNumericas = processarNotas(notasString);
 
+    let somaNotas = 0;
+
+    for (let i = 0; i < notasNumericas.length; i++) {
+        somaNotas += notasNumericas[i];
+    }
+
+    let mediaTurma = somaNotas / notasNumericas.length;
+    
     return mediaTurma
 }
 
