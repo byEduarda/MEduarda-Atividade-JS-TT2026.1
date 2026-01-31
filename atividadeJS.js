@@ -5,7 +5,7 @@ function processarNotas(notasString){
 }
 
 function calcularMediaNotas(notasString){
-    
+
     let notasNumericas = processarNotas(notasString);
 
     let somaNotas = 0;
@@ -21,7 +21,29 @@ function calcularMediaNotas(notasString){
 
 function mostrarSituacaoAluno(notasString){
 
+    let notasNumericas = processarNotas(notasString);
+    let mediaTurma = calcularMediaNotas(notasString);
+    let situacaoAluno = {};
+
+    for (let i = 0; i < notasNumericas.length; i++) {
+        let nota = notasNumericas[i];
+        let situacao = "";
+
+        if (nota >= 5.0) {
+            situacao += "Aprovado";
+        } else {
+            situacao += "Reprovado";
+        }
+
+        if (nota > mediaTurma) {
+            situacao += " e Acima da media da turma";
+        } else {
+            situacao += " e Abaixo da media da turma";
+        }
+
+        situacaoAluno[nota] = situacao;
+    }
     console.log(situacaoAluno)
 }
 
-//mostrarSituacaoAluno()
+mostrarSituacaoAluno("7.5, 8.0, 6.2, 9.5, 4.0")
